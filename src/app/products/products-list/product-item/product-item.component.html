@@ -1,0 +1,14 @@
+<a
+  style="cursor: pointer"
+  class="list-group-item list-group-item-action"
+  aria-current="true"
+  [routerLink]="product.name"
+  (click)="emitProduct(product)"
+>
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{ product.name }}</h5>
+  </div>
+  <img [src]="product.imagePath" style="max-height: 100px" alt="" />
+  <p class="mb-1">{{ product.description }}</p>
+  <small>{{ "$" + " " + product.price }}</small>
+</a>

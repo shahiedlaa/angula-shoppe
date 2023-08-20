@@ -1,0 +1,36 @@
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.product-title {
+  font-size: 3rem;
+}
+
+.product-price, .product-warranty, .product-delivery {
+  font-size: 1.75rem;
+}
+
+.product-price {
+  color: rgb(209, 66, 50);
+}
+
+.nav-tabs {
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: brown;
+}
+
+.material-symbols-outlined{
+  font-size: 3rem;
+}
+
+.delivery-group {
+  display: inline-flex;
+  gap: 1rem;
+  color: brown;
+}

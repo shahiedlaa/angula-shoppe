@@ -1,0 +1,42 @@
+<div class="cart-container mt-5 d-flex flex-column align-items-center ">
+  <div class="card" style="width: 800px">
+    <img
+      src="assets/scandinavian-garden-ideas-landscape.png"
+      class="card-img-top"
+      alt="scandanavian furniture"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Your Shopping Cart</h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let product of products">
+        {{product.name}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="card mt-5 d-flex flex-row">
+    <div class="coupon-code">
+      <div class="card-body">
+        <h5 class="card-title">Coupon Code</h5>
+        <p class="card-text">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="order-summary">
+      <div class="card-body">
+        <h5 class="card-title">Order Summary</h5>
+        <p class="card-text">
+          With supporting text below as a natural lead-in to additional content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>

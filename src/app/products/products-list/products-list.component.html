@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="goNew()">New Product</button>
+  </div>
+</div>
+<div class="row" *ngFor="let product of products; index as i">
+  <div class="col-xs-12">
+    <div class="list-group">
+      <app-product-item [product]="product" [productId]="i"></app-product-item>
+    </div>
+  </div>
+</div>
