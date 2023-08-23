@@ -16,7 +16,7 @@ export class ProductService {
   private products: product[] = [
     new product(
       'hans-sofa',
-      'comfortable sofa',
+      'If you have selected self-installation, please follow the installation instructions provided in the product image. We strongly encourage customers to contact FortyTwo for professional assistance for service issues. This product is not recommended for use on carpeted areas as it prevents the wheels from gliding smoothly.',
       450,
       'https://www.fortytwo.sg/media/catalog/product/cache/1/image/600x600/040ec09b1e35df139433887a97daa66f/1/_/1_133_252.jpg',
       3),
