@@ -27,11 +27,17 @@
     <div class="col d-flex justify-content-center align-items-center">
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+          <div class="add-to-cart">
+            <div class="quantity">
+              <label for="quantity">Quantity:</label>
+              <input type="number" id="quantity" name="quantity" min=0 oninput="validity.valid||(value='');">
+            </div>
+            <button>Add To Cart</button>
+          </div>
+          <div class="add-to-cart-text">
+            <p>90 Days Return Policy</p>
+            <p>Interest Free Installment Available</p>
+          </div>
         </div>
       </div>
     </div>
@@ -39,8 +45,8 @@
   <div class="row">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button"
-          role="tab" aria-controls="description-tab-pane" aria-selected="true">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane"
+          type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">
           Description
         </button>
       </li>
@@ -51,14 +57,15 @@
         </button>
       </li>
       <li class="nav-item">
-        <button class="nav-link" id="essentials-tab" data-bs-toggle="tab" data-bs-target="#essentials-tab-pane" type="button"
-          role="tab" aria-controls="essentials-tab-pane" aria-selected="false">
+        <button class="nav-link" id="essentials-tab" data-bs-toggle="tab" data-bs-target="#essentials-tab-pane"
+          type="button" role="tab" aria-controls="essentials-tab-pane" aria-selected="false">
           Essentials
         </button>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+      <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab"
+        tabindex="0">
         <p>
           {{product.description}}
         </p>
