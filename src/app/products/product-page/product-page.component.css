@@ -34,3 +34,18 @@
   gap: 1rem;
   color: brown;
 }
+
+.quantity {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.add-to-cart {
+  background-color: antiquewhite;
+}
+
+.card-body {
+  padding: 0;
+}
