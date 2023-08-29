@@ -9,7 +9,9 @@
   font-size: 3rem;
 }
 
-.product-price, .product-warranty, .product-delivery {
+.product-price,
+.product-warranty,
+.product-delivery {
   font-size: 1.75rem;
 }
 
@@ -25,7 +27,7 @@
   color: brown;
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
   font-size: 3rem;
 }
 
@@ -42,10 +44,76 @@
   gap: 0.2rem;
 }
 
+#quantity{
+  width: 8rem;
+}
+
+.cart-button {
+  display: flex;
+  justify-content: center;
+  font-weight: 200;
+}
+
 .add-to-cart {
-  background-color: antiquewhite;
+  background-color: #ffd8a8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-to-cart-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+.quantity {
+  text-align:center;
+  border-radius: 20px;
+  
+}
+.btn:hover,
+.btn:active {
+  background-color: #ff922b;
+  cursor: pointer;
+}
+.btn-small {
+  font-size: 14px;
+  padding: 8px 12px;
+  margin-top: 10px;
+  background-color: #fd7e14;
+  color: #343a40;
+  border-radius: 20px;
+  text-align: center;
 }
 
 .card-body {
   padding: 0;
+}
+
+/*Features*/
+.cart-icon {
+  width: 24px;
+  height: 24px;
+}
+.heart-icon {
+  stroke: #495057;
+  fill: #495057;
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+}
+.calandar-icon {
+  stroke: #fd7e14;
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.interest-icon {
+  stroke: #fd7e14;
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
 }
