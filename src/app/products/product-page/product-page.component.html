@@ -25,56 +25,96 @@
       </div>
     </div>
     <div class="col d-flex justify-content-center align-items-center">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <div class="add-to-cart">
-            <div class="quantity">
-              <label for="quantity">Quantity:</label>
-              <input type="number" id="quantity" name="quantity" min=0 oninput="validity.valid||(value='');">
+      <div class="container">
+        <div class="card" style="width: 20rem">
+          <div class="card-body">
+            <div class="add-to-cart">
+              <div class="quantity">
+                <label for="quantity" class="qty-btn">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="0" oninput="validity.valid||(value='');" />
+              </div>
+              <div class="cart-button">
+                <button class="btn btn-small">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="cart-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                  </svg>Add To Cart
+                </button>
+              </div>
+
+              <div class="wishlist">
+                <p>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="heart-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                  </svg>
+
+                  <span>Add to wishlist</span>
+                </p>
+              </div>
             </div>
-            <button>Add To Cart</button>
-          </div>
-          <div class="add-to-cart-text">
-            <p>90 Days Return Policy</p>
-            <p>Interest Free Installment Available</p>
+            <div class="add-to-cart-text">
+              <p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="calandar-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                </svg>
+
+                <span>90 Days Return Policy</span>
+              </p>
+              <p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="interest-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+
+                <span>Interest Free Installment Available</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane"
-          type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">
-          Description
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button"
-          role="tab" aria-controls="reviews-tab-pane" aria-selected="false">
-          Reviews
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="nav-link" id="essentials-tab" data-bs-toggle="tab" data-bs-target="#essentials-tab-pane"
-          type="button" role="tab" aria-controls="essentials-tab-pane" aria-selected="false">
-          Essentials
-        </button>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab"
-        tabindex="0">
-        <p>
-          {{product.description}}
-        </p>
-      </div>
-      <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
-        ...
-      </div>
-      <div class="tab-pane fade" id="essentials-tab-pane" role="tabpanel" aria-labelledby="essentials-tab" tabindex="0">
-        ...
+    <div class="row">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+            data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane"
+            aria-selected="true">
+            Description
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane"
+            type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">
+            Reviews
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="essentials-tab" data-bs-toggle="tab" data-bs-target="#essentials-tab-pane"
+            type="button" role="tab" aria-controls="essentials-tab-pane" aria-selected="false">
+            Essentials
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel"
+          aria-labelledby="description-tab" tabindex="0">
+          <p>
+            {{ product.description }}
+          </p>
+        </div>
+        <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
+          ...
+        </div>
+        <div class="tab-pane fade" id="essentials-tab-pane" role="tabpanel" aria-labelledby="essentials-tab"
+          tabindex="0">
+          ...
+        </div>
       </div>
     </div>
   </div>
