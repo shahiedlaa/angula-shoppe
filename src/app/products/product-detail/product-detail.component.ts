@@ -28,12 +28,12 @@ export class ProductDetailComponent implements OnInit {
 
   goEdit() {
     this.router.navigate(['edit'], { relativeTo: this.route });
-    this.productService.$emitIndex.emit(this.productId);
+    this.productService.$emitIndex.next(this.productId);
   }
 
-  addToCart(product: product) {
-    this.cartService.addToShoppingCart(product);
-  }
+  // addToCart(product: product) {
+  //   this.cartService.addToShoppingCart(product);
+  // }
 
   goDelete(){
     this.productService.deleteProduct(this.productId);

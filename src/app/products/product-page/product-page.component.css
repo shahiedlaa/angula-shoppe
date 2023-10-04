@@ -6,21 +6,32 @@
 }
 
 .product-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .product-price,
 .product-warranty,
 .product-delivery {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 }
 
 .product-price {
   color: rgb(209, 66, 50);
 }
 
+.product-description {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
+.product-images img {
+  height: 300px;
+}
+
 .nav-tabs {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .nav-link {
@@ -33,6 +44,7 @@
 
 .delivery-group {
   display: inline-flex;
+  align-items: center;
   gap: 1rem;
   color: brown;
 }
@@ -40,11 +52,11 @@
 /* Card Styling */
 .card-body {
   padding: 0;
-  font-size: 1.25rem;
+  font-size: 1rem;
   overflow: hidden;
 }
 
-#quantity{
+#quantity {
   width: 4rem;
   margin-left: 0.5rem;
   border-radius: 1rem;
@@ -56,6 +68,7 @@
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .quantity-section {
@@ -72,7 +85,7 @@
 }
 
 .btn.icon-text {
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   font-size: 1.1rem;
   border: solid 1px;
   border-radius: 1rem;
@@ -80,83 +93,5 @@
 }
 
 .btn.icon-text:hover {
-  background-color:rgb(217, 215, 215);
+  background-color: rgb(217, 215, 215);
 }
-
-/* .quantity {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.2rem;
-}
-
-#quantity{
-  width: 8rem;
-}
-
-.cart-button {
-  display: flex;
-  justify-content: center;
-  font-weight: 200;
-}
-
-.add-to-cart {
-  background-color: #ffd8a8;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-to-cart-text{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.quantity {
-  text-align:center;
-  border-radius: 20px;
-
-}
-.btn:hover,
-.btn:active {
-  background-color: #ff922b;
-  cursor: pointer;
-}
-.btn-small {
-  font-size: 14px;
-  padding: 8px 12px;
-  margin-top: 10px;
-  background-color: #fd7e14;
-  color: #343a40;
-  border-radius: 20px;
-  text-align: center;
-}
- */
-
-/*Features*/
-/* .cart-icon {
-  width: 24px;
-  height: 24px;
-}
-.heart-icon {
-  stroke: #495057;
-  fill: #495057;
-  margin-top: 10px;
-  width: 30px;
-  height: 30px;
-}
-.calandar-icon {
-  stroke: #fd7e14;
-  margin-top: 10px;
-  width: 30px;
-  height: 30px;
-}
-
-.interest-icon {
-  stroke: #fd7e14;
-  margin-top: 10px;
-  width: 30px;
-  height: 30px;
-} */

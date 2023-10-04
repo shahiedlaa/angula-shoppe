@@ -1,0 +1,17 @@
+.alert-danger{
+  border: 1px solid red;
+}
+
+.alert {
+  color: red;
+}
+
+input {
+  border: 0.5px solid black;
+  border-radius: 0.5rem;
+  margin-left: 0.4rem;
+}
+
+#color, #maxLoad, #price, #warranty{
+  width: 4rem;
+}

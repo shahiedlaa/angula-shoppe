@@ -1,14 +1,36 @@
-<a
-  style="cursor: pointer"
-  class="list-group-item list-group-item-action"
-  aria-current="true"
-  [routerLink]="product.name"
-  (click)="emitProduct(product)"
->
-  <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1">{{ product.name }}</h5>
+<div style="cursor: pointer; width: 450px;" class="card rounded p-3" aria-current="true">
+  <div>
+    <div class="d-flex w-100 justify-content-between mb-1">
+      <div class="d-flex" style="gap: 0.75rem;">
+        <h5>{{ product.name | titlecase}}</h5>
+        <span style="color: darkred;">${{product.price}}</span>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Manage Product
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#confirmPopUp" style="cursor: pointer;"
+              (click)="formOpen(product,productId)">Add to Cart</a></li>
+          <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="cursor: pointer;"
+              (click)="formOpen(product, productId)">Edit</a></li>
+          <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#confirmPopUp" style="cursor: pointer;"
+              (click)="formOpen(null,productId)">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex flex-row align-items-center" [routerLink]="product.name" (click)="emitProduct(product)">
+      <img [src]="product.imagePath[0]" style="max-height: 175px">
+      <ul class="product-desc">
+        <li>{{productDescList[0]}}</li>
+        <li>{{productDescList[1]}}</li>
+      </ul>
+    </div>
   </div>
-  <img [src]="product.imagePath" style="max-height: 100px" alt="" />
-  <p class="mb-1">{{ product.description }}</p>
-  <small>{{ "$" + " " + product.price }}</small>
-</a>
+</div>
+
+<app-product-form></app-product-form>
+
+<app-product-confirm></app-product-confirm>
+
+<ngb-toast></ngb-toast>

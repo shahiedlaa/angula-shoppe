@@ -1,0 +1,25 @@
+<label class="label" style="font-weight: bolder;">{{label}}:</label>
+
+<input type="text" *ngIf="label == 'Name' " [formControl]="control" id="name"
+  [ngClass]="{'alert-danger': showErrors()}">
+<input type="text" *ngIf="label == 'Color' " [formControl]="control" id="color"
+  [ngClass]="{'alert-danger': showErrors()}">
+<input *ngIf="label =='Warranty (yrs)'" type="number" [formControl]="control" id="warranty"
+  [ngClass]="{'alert-danger': showErrors()}">
+<input *ngIf="label =='Max Load (kg)'" type="number" [formControl]="control" id="maxLoad"
+  [ngClass]="{'alert-danger': showErrors()}">
+<input *ngIf="label =='Price ($)'" type="number" [formControl]="control" id="price"
+  [ngClass]="{'alert-danger': showErrors()}">
+<textarea *ngIf="label =='Description'" [formControl]="control" cols="50" rows="3"></textarea>
+<textarea *ngIf="label =='Image Path 1'" [formControl]="control" cols="50" rows="1"></textarea>
+<textarea *ngIf="label =='Image Path 2'" [formControl]="control" cols="50" rows="1"></textarea>
+<textarea *ngIf="label =='Image Path 3'" [formControl]="control" cols="50" rows="1"></textarea>
+<textarea *ngIf="label =='Care Info'" [formControl]="control" cols="50" rows="2"></textarea>
+<ng-container *ngIf="control.errors && control.dirty && control.touched">
+  <div style="color: red;" *ngIf="control.errors.required">
+    Name is required!
+  </div>
+  <div style="color: red;" *ngIf="control.errors.minlength">
+    3 minimum characters!
+  </div>
+</ng-container>

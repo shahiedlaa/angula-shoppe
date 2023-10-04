@@ -37,12 +37,12 @@ export class ProductEditComponent implements OnInit {
 
   onSubmit(form) {
     if (this.editMode) {
-      let updatedProduct = new product(form.value.name, form.value.description, form.value.price, form.value.imagePath, null);
+      let updatedProduct = new product(form.value.name, form.value.description, form.value.price, form.value.imagePath, null, null);
       console.log(updatedProduct);
       this.productService.updateProduct(updatedProduct, this.productId);
     }
     else {
-      let newProduct = new product(form.value.name, form.value.description, form.value.price, form.value.imagePath, null);
+      let newProduct = new product(form.value.name, form.value.description, form.value.price, form.value.imagePath, null, null);
       console.log(newProduct);
       this.productService.addProduct(newProduct);
     }

@@ -1,0 +1,72 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm)">
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">{{editMode? 'Edit Product': 'Create Product'}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div style="margin-bottom: 0.5rem;">
+            <app-input-field label="Name" [control]="productForm.get('name')"></app-input-field>
+          </div>
+          <div style="margin-bottom: 0.5rem;">
+            <app-input-field label="Description" [control]="productForm.get('description')"></app-input-field>
+          </div>
+          <div style="margin-bottom: 0.5rem; color: darkred; font-weight: bolder;">
+            <label>Specifications</label>
+          </div>
+          <div class="specifications" style="display: flex; flex-direction: row; gap: 2rem; margin-bottom: 0.5rem;">
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <app-input-field label="Color" [control]="productForm.get('color')"></app-input-field>
+              <app-input-field label="Price ($)" [control]="productForm.get('price')"></app-input-field>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem">
+              <app-input-field label="Max Load (kg)" [control]="productForm.get('maxLoad')"></app-input-field>
+              <app-input-field label="Warranty (yrs)" [control]="productForm.get('warranty')"></app-input-field>
+            </div>
+          </div>
+          <div style="margin-bottom: 0.5rem;">
+            <app-input-field label="Care Info" [control]="productForm.get('careInfo')"></app-input-field>
+          </div>
+          <div style="margin-bottom: 0.5rem;">
+            <app-input-field label="Image Path 1" [control]="productForm.get('imagePath1')"></app-input-field>
+          </div>
+          <div style="margin-bottom: 0.5rem;">
+            <app-input-field label="Image Path 2" [control]="productForm.get('imagePath2')"></app-input-field>
+          </div>
+          <div>
+            <app-input-field label="Image Path 3" [control]="productForm.get('imagePath3')"></app-input-field>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+            data-bs-toggle="modal">{{editMode? 'Update':'Create'}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure to {{this.editMode?'update':'create'}} product?
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="button" data-bs-target="#staticBackdrop" data-bs-toggle="modal">Go Back</button>
+          <button class="btn btn-primary" data-bs-dismiss="modal" type="submit">{{this.editMode?'Update':'Create'}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

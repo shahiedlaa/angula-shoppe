@@ -1,13 +1,13 @@
 <div class="container-fluid">
-  <div class="row justify-content-start mb-5">
+  <div class="row justify-content-start">
     Home > {{ productName | titlecase }}
   </div>
   <div class="row">
     <div class="col-4">
-      <img [src]="product.imagePath" class="rounded img-fluid" />
+      <img [src]="product.imagePath[0]" class="rounded img-fluid" />
     </div>
-    <div class="col">
-      <div class="div product-info ms-5">
+    <div class="col-4">
+      <div class="div product-info ms-4">
         <h1 class="product-title mb-3">
           {{ productName | titlecase }}
         </h1>
@@ -17,7 +17,7 @@
         <div class="product-delivery">
           <div class="delivery-group">
             <span class="material-symbols-outlined"> local_shipping </span>
-            <p>Standard Delivery</p>
+            Standard Delivery
           </div>
           <br />
           Receive by {{ deliveryDate | date : "fullDate" }}
@@ -28,20 +28,23 @@
       <div class="container d-flex justify-content-center ">
         <div class="card" style="width:max-content; overflow: hidden;">
           <div class="card-body">
-            <div class="quantity-section">
-              <div class="quantity">
-                <label for="quantity" class="qty-btn">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="0" oninput="validity.valid||(value='');" />
+            <form #addToCartForm="ngForm" (ngSubmit)="onSubmit(addToCartForm, product)" novalidate>
+              <div class="quantity-section">
+                <div class="quantity">
+                  <label for="quantity" class="qty-btn form-label">Quantity:</label>
+                  <input type="number" id="quantity" value="1" name="quantity" min="1"
+                    oninput="validity.valid||(value='');" class="form-control" #quantity="ngModel" ngModel required>
+                </div>
+                <div class="cart-button">
+                  <button class="btn icon-text" [disabled]="!addToCartForm.form.valid">
+                    <span class="material-symbols-outlined" style="font-size: 2rem; font-variation-settings:'FILL' 1;">
+                      shopping_cart
+                    </span>
+                    Add To Cart
+                  </button>
+                </div>
               </div>
-              <div class="cart-button">
-                <button class="btn icon-text">
-                  <span class="material-symbols-outlined" style="font-size: 2rem; font-variation-settings:'FILL' 1;">
-                    shopping_cart
-                  </span>
-                  Add To Cart
-                </button>
-              </div>
-            </div>
+            </form>
             <div class="text-section">
               <p class="icon-text">
                 <span class="material-symbols-outlined" style="font-size: 2rem; font-variation-settings:'FILL' 1;">
@@ -83,30 +86,40 @@
         </button>
       </li>
       <li class="nav-item">
-        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button"
-          role="tab" aria-controls="reviews-tab-pane" aria-selected="false">
-          Reviews
-        </button>
-      </li>
-      <li class="nav-item">
         <button class="nav-link" id="essentials-tab" data-bs-toggle="tab" data-bs-target="#essentials-tab-pane"
           type="button" role="tab" aria-controls="essentials-tab-pane" aria-selected="false">
           Essentials
         </button>
       </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content py-3" id="myTabContent">
       <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab"
-        tabindex="0">
-        <p>
-          {{ product.description }}
-        </p>
-      </div>
-      <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
-        ...
+        tabindex="0" style="gap: 3rem;">
+        <div class="product-description">
+          <div>
+            <p class="mb-0">Product Information</p>
+            <ul>
+              <li *ngFor="let desc of productDescList">{{desc}}</li>
+            </ul>
+            <p class="mb-0">Product Specifications</p>
+            <ul>
+              <li>Color: {{product.specification.color | titlecase}}</li>
+              <li>Maximum Load: {{product.specification.maxLoad}} kg</li>
+            </ul>
+          </div>
+          <div class="product-images d-flex" style="gap: 4rem;">
+            <img class="rounded" [src]="product.imagePath[1]" alt="product images">
+            <img class="rounded" [src]="product.imagePath[2]" alt="product images">
+          </div>
+        </div>
       </div>
       <div class="tab-pane fade" id="essentials-tab-pane" role="tabpanel" aria-labelledby="essentials-tab" tabindex="0">
-        ...
+        <div class="product-care">
+          <p class="mb-0">Product Care Information</p>
+          <ul>
+            <li *ngFor="let info of productCareInfo">{{info}}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

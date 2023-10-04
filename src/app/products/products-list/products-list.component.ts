@@ -24,4 +24,9 @@ export class ProductsListComponent implements OnInit {
   goNew() {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
+
+  emitNew(){
+    this.productService.$emitNew.next(true);
+  }
+
 }

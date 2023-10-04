@@ -13,12 +13,26 @@ export class ProductItemComponent {
 
   @Input() product: product;
   @Input() productId: number;
+  productDescList: string[];
 
-  constructor(private prodService:ProductService, private router: Router) {}
+  constructor(private prodService: ProductService, private router: Router) { }
 
-  emitProduct(product:product){
+  ngOnInit() {
+    this.productDescList = this.product.description.split('.');
+  }
+
+  emitProduct(product: product) {
     this.prodService.$emitProduct.next(product);
     this.router.navigate([this.product.name])
+  }
+
+  formOpen(product: product, index: number) {
+    this.prodService.$emitProduct.next(product);
+    this.prodService.$emitIndex.next(index);
+  }
+
+  deleteProd(index:number){
+    this.prodService.deleteProduct(index);
   }
 
 }
