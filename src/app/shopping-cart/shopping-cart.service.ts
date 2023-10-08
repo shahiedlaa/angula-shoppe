@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { product } from '../products/product.model';
 import { cart } from './cart.model';
 
@@ -6,6 +7,7 @@ import { cart } from './cart.model';
 export class ShoppingCartService {
 
   $addToCart = new EventEmitter<cart[]>();
+  $showToast = new Subject<boolean>();
 
   products: product[] = [];
   cart:cart[] = [];
@@ -19,8 +21,6 @@ export class ShoppingCartService {
   }
 
   addToShoppingCart(cartItem:cart){
-    // this.products.push(product);
-    // this.$addToCart.emit(this.products.slice());
     this.cart.push(cartItem);
     this.$addToCart.emit(this.cart.slice());
   }

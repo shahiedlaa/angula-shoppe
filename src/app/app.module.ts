@@ -19,6 +19,7 @@ import { InputFieldComponent } from './products/product-form/input-field/input-f
 import { ModalPopComponent } from './modal-pop/modal-pop.component';
 import { ProductConfirmComponent } from './products/product-confirm/product-confirm.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastsComponent } from './toasts/toasts.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     InputFieldComponent,
     ModalPopComponent,
     ProductConfirmComponent,
+    ToastsComponent,
   ],
   imports: [
     BrowserModule,

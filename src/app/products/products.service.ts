@@ -15,7 +15,7 @@ export class ProductService {
   $emitNew = new Subject<boolean>();
   $formState = new BehaviorSubject(null);
 
-  private products: product[] = [
+  public products: product[] = [
     new product(
       'hans',
       `Wood plywood base. The frame made of rubberwood is strong and long-lasting. Linen fabric cover. Seat and backrest made of foam with a high density of polyurethane. Curved, sleek armrests`,

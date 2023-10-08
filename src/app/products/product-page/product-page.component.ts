@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { cart } from 'src/app/shopping-cart/cart.model';
 import { ShoppingCartService } from 'src/app/shopping-cart/shopping-cart.service';
+import { ToastService } from 'src/app/toasts/toast.service';
 
 import { product } from '../product.model';
 import { ProductService } from '../products.service';
@@ -25,7 +26,7 @@ export class ProductPageComponent {
   productCareInfo: string[];
 
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: ShoppingCartService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: ShoppingCartService, private router: Router, private toastService:ToastService) { }
 
   @ViewChild('addToCartForm') cartForm: NgForm;
 
@@ -39,7 +40,6 @@ export class ProductPageComponent {
       }
     )
     this.addWeeks(1);
-    console.log(this.product)
   }
 
   ngOnDestroy() {
@@ -51,13 +51,11 @@ export class ProductPageComponent {
     this.deliveryDate = date;
   }
 
-  // addToCart(product: product) {
-  //   this.cartService.addToShoppingCart(product);
-  // }
-
   onSubmit(form, product) {
     const cartItem = new cart(product.name, product.price, form.value.quantity);
-    this.cartService.addToShoppingCart(cartItem)
+    this.cartService.addToShoppingCart(cartItem);
+    let productName = this.product.name[0].toUpperCase() + this.product.name.slice(1).toLowerCase();
+    this.toastService.show('Notification', productName + ' was added to cart!', null, 'prodAdded');
   }
 
 }
