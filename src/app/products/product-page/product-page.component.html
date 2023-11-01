@@ -36,7 +36,7 @@
                     oninput="validity.valid||(value='');" class="form-control" #quantity="ngModel" ngModel required>
                 </div>
                 <div class="cart-button">
-                  <button class="btn icon-text" [disabled]="!addToCartForm.form.valid">
+                  <button class="btn icon-text" type="submit" [disabled]="!addToCartForm.form.valid">
                     <span class="material-symbols-outlined" style="font-size: 2rem; font-variation-settings:'FILL' 1;">
                       shopping_cart
                     </span>

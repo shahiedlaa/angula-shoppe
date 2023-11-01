@@ -24,6 +24,7 @@ export class ProductPageComponent {
   deliveryDate;
   productDescList: string[];
   productCareInfo: string[];
+  cartItems: cart[];
 
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: ShoppingCartService, private router: Router, private toastService:ToastService) { }
@@ -40,6 +41,12 @@ export class ProductPageComponent {
       }
     )
     this.addWeeks(1);
+    this.cartItems = this.cartService.getCartItems();
+    this.cartService.$cartChange.subscribe(
+      (cart: cart[]) => {
+        this.cartItems = cart;
+      }
+    )
   }
 
   ngOnDestroy() {
@@ -52,8 +59,17 @@ export class ProductPageComponent {
   }
 
   onSubmit(form, product) {
-    const cartItem = new cart(product.name, product.price, form.value.quantity);
-    this.cartService.addToShoppingCart(cartItem);
+    const cartItem = new cart(product.name, product.price, form.value.quantity,product.imagePath[0]);
+    let found = false;
+    this.cartItems.forEach((value) => {
+      if(this.product.name === value.name){
+        found = true;
+        value.quantity = cartItem.quantity + value.quantity;
+      }
+    })
+    if(!found){
+      this.cartService.addToShoppingCart(cartItem);
+    }
     let productName = this.product.name[0].toUpperCase() + this.product.name.slice(1).toLowerCase();
     this.toastService.show('Notification', productName + ' was added to cart!', null, 'prodAdded');
   }

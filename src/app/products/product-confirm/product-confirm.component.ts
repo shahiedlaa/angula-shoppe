@@ -15,6 +15,8 @@ export class ProductConfirmComponent {
   productId: number;
   product: product;
   addMode: boolean = false;
+  cartItems: cart[];
+  exists: boolean = false;
 
   constructor(private productService: ProductService, private cartService: ShoppingCartService, private toastService: ToastService) {
     this.productService.$emitProduct.subscribe((product) => {
@@ -33,13 +35,31 @@ export class ProductConfirmComponent {
     })
   }
 
+  ngOnInit() {
+    this.cartItems = this.cartService.getCartItems();
+    this.cartService.$cartChange.subscribe(
+      (cart: cart[]) => {
+        this.cartItems = cart;
+      }
+    )
+  }
 
   addProdtoCart() {
-    const cartItem = new cart(this.product.name, this.product.price, 1);
-    this.cartService.addToShoppingCart(cartItem);
+    const cartItem = new cart(this.product.name, this.product.price, 1, this.product.imagePath[0]);
+    let found = false;
+    this.cartItems.forEach((value) => {
+      if(this.product.name === value.name){
+        found = true;
+        value.quantity++;
+      }
+    })
+    if(!found){
+      this.cartService.addToShoppingCart(cartItem);
+    }
     this.productService.$formState.next(true);
     let productName = this.product.name[0].toUpperCase() + this.product.name.slice(1).toLowerCase();
     this.toastService.show('Notification', productName + ' was added to cart!', null, 'prodAdded');
+    console.log(this.cartItems);
   }
 
   deleteProd() {

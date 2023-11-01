@@ -1,4 +1,4 @@
-export class cart {
+export class orders {
   constructor(
     public name: string,
     public price: number,

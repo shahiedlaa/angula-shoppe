@@ -12,15 +12,21 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/auth" routerLinkActive="active">Account</a>
+        </li>
       </ul>
-      <ul class="navbar-nav ms-auto">
+      <ul *ngIf="isAuthenticated" class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" style="cursor: pointer;" (click)="logOut()">Log Out</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Manage
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" style="cursor: pointer;">Save Data</a></li>
-            <li><a class="dropdown-item" style="cursor: pointer;">Fetch Data</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="storeProducts()">Save Data</a></li>
+            <li><a class="dropdown-item" style="cursor: pointer;" (click)="fetchProducts()">Fetch Data</a></li>
           </ul>
         </li>
       </ul>

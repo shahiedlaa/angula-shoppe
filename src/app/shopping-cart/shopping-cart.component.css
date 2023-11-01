@@ -1,0 +1,23 @@
+.product-name{
+  margin-top: 1rem;
+}
+
+.material-symbols-outlined{
+  text-decoration: none;
+  color: inherit;
+}
+
+.quantity-symbol {
+  color:darkred;
+  font-weight: bold;
+  font-size: 0.8em;
+  border: 1px solid grey;
+  border-radius: 1.3rem;
+  cursor: pointer;
+  outline-style:none;
+}
+
+.quantity-symbol:hover{
+  color: white;
+  background-color: black;
+}

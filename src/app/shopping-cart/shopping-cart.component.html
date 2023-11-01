@@ -1,41 +1,94 @@
-<div class="cart-container mt-5 d-flex flex-column align-items-center ">
-  <div class="card">
-    <img
-      src="assets/scandinavian-garden-ideas-landscape.png"
-      class="card-img-top img-fluid"
-      alt="scandanavian furniture"
-    />
-    <div class="card-body">
-      <h5 class="card-title">Your Shopping Cart</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" *ngFor="let cartItem of cart">
-        {{cartItem.name}}
-      </li>
-    </ul>
-  </div>
-
-  <div class="card mt-5 d-flex flex-row">
-    <div class="coupon-code">
-      <div class="card-body">
-        <h5 class="card-title">Coupon Code</h5>
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="row m-3">
+  <div class="col-6">
+    <div class="cart-container mt-3 d-flex flex-column align-items-center ">
+      <div class="card">
+        <img src="assets/scandinavian-garden-ideas-landscape.png" class="card-img-top img-fluid"
+          alt="scandanavian furniture" />
+        <div class="card-body">
+          <h5 class="card-title"> {{cart.length>0? 'Your Shopping Cart':'Your shopping cart is empty, time to get
+            busy!'}}
+          </h5>
+          <div class="d-flex justify-content-center" *ngIf="cart.length > 0">
+            <table class="table table-striped align-middle" style="width: 100%; margin: 0.5rem; text-align: center;">
+              <thead>
+                <tr>
+                  <th scope="col" style="text-align: left;">Product</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cart; index as i">
+                  <td class="d-flex flex-row align-items-center" style="gap: 1rem">
+                    <div><img [src]="item.imageUrl" height="50px"
+                        style="border-radius:0.5rem; border: 0.2px solid black;">
+                    </div>
+                    <p class="product-name">{{item.name | titlecase}}</p>
+                  </td>
+                  <td>${{item.price}}</td>
+                  <td><button (click)="add(i)" class="material-symbols-outlined quantity-symbol">add</button><span
+                      style="margin: 0.65rem; cursor:default;">{{item.quantity}}</span><button (click)="remove(i)"
+                      [disabled]="item.quantity == 1" class="material-symbols-outlined quantity-symbol">remove</button>
+                  </td>
+                  <td> <a (click)="removeCart(i)"
+                      style="cursor: pointer; text-decoration: none; color: inherit; margin-top: 0.45rem; "
+                      class="material-symbols-outlined">delete</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="cart.length > 0" class="d-flex justify-content-end m-2" style="gap: 0.5rem;">
+            <button (click)="resetCart()" class="btn btn-primary">Reset Cart</button><button (click)="pushToOrder()" class="btn btn-success">Push to Checkout</button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="order-summary">
-      <div class="card-body">
-        <h5 class="card-title">Order Summary</h5>
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="col-6">
+    <div class="card mt-3 d-flex flex-col">
+      <div class="order-summary">
+        <div class="card-body">
+          <h5 class="card-title">Order Summary</h5>
+          <div class="d-flex justify-content-center" style="margin-bottom: 1rem;">
+            <table class="table table-striped align-middle" style="width: 100%; margin: 0.5rem; text-align: center;">
+              <thead>
+                <tr>
+                  <th scope="col" style="text-align: left;">Product</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of orders; index as i">
+                  <td class="d-flex flex-row align-items-center" style="gap: 1rem">
+                    <div><img [src]="item.imageUrl" height="50px"
+                        style="border-radius:0.5rem; border: 0.2px solid black;">
+                    </div>
+                    <p class="product-name">{{item.name | titlecase}}</p>
+                  </td>
+                  <td>${{item.price}}</td>
+                  <td><span style="margin: 0.65rem; cursor:default;">{{item.quantity}}</span>
+                  </td>
+                  <td> ${{item.quantity * item.price}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="total !== 0" class="d-flex justify-content-end" style="margin-right: 2.75rem;">
+            <p>Order Total : ${{total}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="coupon-code">
+        <div class="card-body">
+          <h5 class="card-title">Coupon Code</h5>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
       </div>
     </div>
   </div>
