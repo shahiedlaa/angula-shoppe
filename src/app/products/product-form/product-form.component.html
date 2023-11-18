@@ -44,7 +44,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2"
-            data-bs-toggle="modal">{{editMode? 'Update':'Create'}}</button>
+            data-bs-toggle="modal" [disabled]="!productForm.valid">{{editMode? 'Update':'Create'}}</button>
         </div>
       </div>
     </div>

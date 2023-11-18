@@ -1,1 +1,10 @@
+@media (max-width: 768px) {
+  .flex-wrap {
+    margin-bottom: 1rem;
+  }
 
+}
+
+@media (min-width: 992px) {
+
+}

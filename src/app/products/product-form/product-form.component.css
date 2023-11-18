@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  .modal {
+    font-size: 0.725rem;
+  }
+}
+
+@media (min-width: 992px) {
+
+}

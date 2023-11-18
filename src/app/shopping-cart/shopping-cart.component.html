@@ -1,7 +1,8 @@
-<div class="row m-3">
-  <div class="col-6">
+<div class="row whole-section d-flex">
+
+  <div class="col-xs-12 col-md-6">
     <div class="cart-container mt-3 d-flex flex-column align-items-center ">
-      <div class="card">
+      <div class="card cart-section">
         <img src="assets/scandinavian-garden-ideas-landscape.png" class="card-img-top img-fluid"
           alt="scandanavian furniture" />
         <div class="card-body">
@@ -39,24 +40,27 @@
             </table>
           </div>
           <div *ngIf="cart.length > 0" class="d-flex justify-content-end m-2" style="gap: 0.5rem;">
-            <button (click)="resetCart()" class="btn btn-primary">Reset Cart</button><button (click)="pushToOrder()" class="btn btn-success">Push to Checkout</button>
+            <button (click)="resetCart()" class="btn btn-primary">Reset Cart</button><button (click)="pushToOrder()"
+              class="btn btn-success">Push to Checkout</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-6">
-    <div class="card mt-3 d-flex flex-col">
-      <div class="order-summary">
+
+  <div class="col-xs-12 col-md-6">
+    <div class="order-container mt-3 d-flex flex-column align-items-center ">
+      <div class="card order-section">
         <div class="card-body">
           <h5 class="card-title">Order Summary</h5>
-          <div class="d-flex justify-content-center" style="margin-bottom: 1rem;">
+          <div class="d-flex justify-content-center" *ngIf="orders.length > 0">
             <table class="table table-striped align-middle" style="width: 100%; margin: 0.5rem; text-align: center;">
               <thead>
                 <tr>
                   <th scope="col" style="text-align: left;">Product</th>
                   <th scope="col">Price</th>
                   <th scope="col">Quantity</th>
+                  <th scope="col">Action</th>
                   <th scope="col">Total</th>
                 </tr>
               </thead>
@@ -71,6 +75,9 @@
                   <td>${{item.price}}</td>
                   <td><span style="margin: 0.65rem; cursor:default;">{{item.quantity}}</span>
                   </td>
+                  <td> <a (click)="removeOrder(i)"
+                      style="cursor: pointer; text-decoration: none; color: inherit; margin-top: 0.45rem; "
+                      class="material-symbols-outlined">delete</a></td>
                   <td> ${{item.quantity * item.price}}</td>
                 </tr>
               </tbody>
@@ -80,16 +87,15 @@
             <p>Order Total : ${{total}}</p>
           </div>
         </div>
-      </div>
-      <div class="coupon-code">
-        <div class="card-body">
-          <h5 class="card-title">Coupon Code</h5>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="coupon-code">
+          <div class="card-body">
+            <h5 class="card-title">Coupon Code</h5>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

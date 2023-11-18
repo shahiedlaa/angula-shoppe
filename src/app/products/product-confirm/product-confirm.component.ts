@@ -51,6 +51,7 @@ export class ProductConfirmComponent {
       if(this.product.name === value.name){
         found = true;
         value.quantity++;
+        this.cartService.$cartChange.emit(this.cartItems.slice())
       }
     })
     if(!found){
@@ -59,7 +60,7 @@ export class ProductConfirmComponent {
     this.productService.$formState.next(true);
     let productName = this.product.name[0].toUpperCase() + this.product.name.slice(1).toLowerCase();
     this.toastService.show('Notification', productName + ' was added to cart!', null, 'prodAdded');
-    console.log(this.cartItems);
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
   }
 
   deleteProd() {

@@ -40,12 +40,18 @@ export class ShoppingCartComponent implements OnInit {
     this.cartService.removeFromShoppingCart(index);
   }
 
+  removeOrder(index: number) {
+    this.cartService.removeFromOrder(index);
+    this.orderTotal()
+  }
+
   add(index: number) {
     this.cart[index].quantity++;
   }
 
   remove(index: number) {
     this.cart[index].quantity--;
+    this.orderTotal();
   }
 
   resetCart() {

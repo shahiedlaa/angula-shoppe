@@ -1,9 +1,14 @@
-.alert-danger{
+.alert-danger {
   border: 1px solid red;
 }
 
 .alert {
   color: red;
+}
+
+.error-field {
+  color: red;
+  margin-top: 0.3rem;
 }
 
 input {
@@ -12,6 +17,15 @@ input {
   margin-left: 0.4rem;
 }
 
-#color, #maxLoad, #price, #warranty{
+#color,
+#maxLoad,
+#price,
+#warranty {
   width: 4rem;
+}
+
+.textarea{
+  width:200px;
+  height:50px;
+  border:1px solid black;
 }

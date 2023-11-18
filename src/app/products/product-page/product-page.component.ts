@@ -27,19 +27,28 @@ export class ProductPageComponent {
   cartItems: cart[];
 
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: ShoppingCartService, private router: Router, private toastService:ToastService) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: ShoppingCartService, private router: Router, private toastService: ToastService) { }
 
   @ViewChild('addToCartForm') cartForm: NgForm;
 
   ngOnInit() {
     this.subscription = this.productService.$emitProduct.subscribe(
       (product: product) => {
-        this.product = product;
-        this.productName = product.name.replace(/-/g, ' ');
-        this.productDescList = product.description.split('.');
-        this.productCareInfo = product.specification.careInfo.split('.');
+        if (product) {
+          this.product = product;
+          this.productName = product.name.replace(/-/g, ' ');
+          this.productDescList = product.description.split('.');
+          this.productCareInfo = product.specification.careInfo.split('.');
+        }
+        else {
+          this.product = JSON.parse(localStorage.getItem('product'));
+          this.productName = this.product.name.replace(/-/g, ' ');
+          this.productDescList = this.product.description.split('.');
+          this.productCareInfo = this.product.specification.careInfo.split('.');
+        }
       }
     )
+
     this.addWeeks(1);
     this.cartItems = this.cartService.getCartItems();
     this.cartService.$cartChange.subscribe(
@@ -59,15 +68,15 @@ export class ProductPageComponent {
   }
 
   onSubmit(form, product) {
-    const cartItem = new cart(product.name, product.price, form.value.quantity,product.imagePath[0]);
+    const cartItem = new cart(product.name, product.price, form.value.quantity, product.imagePath[0]);
     let found = false;
     this.cartItems.forEach((value) => {
-      if(this.product.name === value.name){
+      if (this.product.name === value.name) {
         found = true;
         value.quantity = cartItem.quantity + value.quantity;
       }
     })
-    if(!found){
+    if (!found) {
       this.cartService.addToShoppingCart(cartItem);
     }
     let productName = this.product.name[0].toUpperCase() + this.product.name.slice(1).toLowerCase();

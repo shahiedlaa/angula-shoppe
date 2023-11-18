@@ -20,15 +20,15 @@ export class ProductFormComponent implements OnInit, OnDestroy {
 
   constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
     this.productForm = new FormGroup({
-      name: new FormControl(``, [Validators.required, Validators.minLength(3)]),
-      description: new FormControl('', [Validators.required]),
-      color: new FormControl('', [Validators.required]),
+      name: new FormControl(``, [Validators.required, Validators.minLength(3), Validators.pattern('^[^0-9]+$')]),
+      description: new FormControl('', [Validators.required, Validators.pattern('(.*)[^.]$')]),
+      color: new FormControl('', [Validators.required, Validators.pattern('^[^0-9]+$')]),
       maxLoad: new FormControl('', [Validators.required]),
-      careInfo: new FormControl('', [Validators.required]),
+      careInfo: new FormControl('', [Validators.required, Validators.pattern('(.*)[^.]$')]),
       price: new FormControl('', [Validators.required]),
-      imagePath1: new FormControl('', [Validators.required]),
-      imagePath2: new FormControl('', [Validators.required]),
-      imagePath3: new FormControl('', [Validators.required]),
+      imagePath1: new FormControl('', [Validators.required, Validators.pattern('^http.*$')]),
+      imagePath2: new FormControl('', [Validators.required, Validators.pattern('^http.*$')]),
+      imagePath3: new FormControl('', [Validators.required, Validators.pattern('^http.*$')]),
       warranty: new FormControl('', [Validators.required]),
     });
   }
@@ -44,7 +44,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
       if (product) {
         this.product = product;
         this.editMode = true;
-        this.productForm.patchValue({
+        this.productForm.setValue({
           name: `${this.product.name}`,
           description: `${this.product.description}`,
           color: `${this.product.specification.color}`,

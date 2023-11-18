@@ -26,10 +26,6 @@
   gap: 3rem;
 }
 
-.product-images img {
-  height: 300px;
-}
-
 .nav-tabs {
   font-size: 1rem;
 }
@@ -94,4 +90,92 @@
 
 .btn.icon-text:hover {
   background-color: rgb(217, 215, 215);
+}
+
+.trolley-icon{
+  font-size: 2rem;
+}
+
+.product-section{
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+
+
+  .product-info {
+    margin-right: 0.85rem;
+  }
+
+  .product-title {
+    font-size: 1.25rem;
+    font-weight: bolder;
+  }
+
+  .product-price,
+  .product-warranty {
+    font-size: 0.8rem;
+  }
+
+  ::ng-deep .product-price {
+    margin-bottom: 0.25rem;
+  }
+
+  ::ng-deep .product-warranty {
+    margin-bottom: 0;
+  }
+
+  .product-delivery, .card-body {
+    font-size: 0.8rem;
+  }
+
+  .delivery-group {
+    font-size: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .delivery-icon {
+    font-size: 1.5rem;
+  }
+
+  .cart-section {
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .trolley-icon {
+    font-size: 1.5rem;
+  }
+
+  .btn.icon-text, .form-label{
+    font-size: 1rem;
+  }
+
+  .product-section {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .product-images img {
+    height: 150px;
+  }
+  .product-images {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .product-images img {
+    height: 300px;
+  }
+
+  .product-images {
+    gap: 4rem;
+    margin-left: 6rem;
+  }
+
+  .information-sect{
+    margin-top: 1rem;
+  }
 }

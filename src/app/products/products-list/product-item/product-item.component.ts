@@ -24,6 +24,7 @@ export class ProductItemComponent {
   emitProduct(product: product) {
     this.prodService.$emitProduct.next(product);
     this.router.navigate([this.product.name])
+    localStorage.setItem('product', JSON.stringify(product));
   }
 
   formOpen(product: product, index: number) {

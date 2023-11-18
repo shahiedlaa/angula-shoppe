@@ -1,14 +1,14 @@
 <div class="container-fluid">
-  <div class="row justify-content-start">
+  <div class="row justify-content-start mb-3">
     Home > {{ productName | titlecase }}
   </div>
   <div class="row">
-    <div class="col-4">
-      <img [src]="product.imagePath[0]" class="rounded img-fluid" />
+    <div class="col-6 col-md-4 main-pic-sect">
+      <img [src]="product.imagePath[0]" class="main-pic rounded img-fluid" />
     </div>
-    <div class="col-4">
-      <div class="div product-info ms-4">
-        <h1 class="product-title mb-3">
+    <div class="col-6 col-md-4">
+      <div class="product-info">
+        <h1 class="product-title mb-2">
           {{ productName | titlecase }}
         </h1>
         <p class="product-price">S${{ product.price }}</p>
@@ -16,7 +16,7 @@
         <hr />
         <div class="product-delivery">
           <div class="delivery-group">
-            <span class="material-symbols-outlined"> local_shipping </span>
+            <span class="material-symbols-outlined delivery-icon"> local_shipping </span>
             Standard Delivery
           </div>
           <br />
@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="col d-flex align-items-center">
+    <div class="col-12 col-md-4 d-flex align-items-center cart-section">
       <div class="container d-flex justify-content-center ">
         <div class="card" style="width:max-content; overflow: hidden;">
           <div class="card-body">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="cart-button">
                   <button class="btn icon-text" type="submit" [disabled]="!addToCartForm.form.valid">
-                    <span class="material-symbols-outlined" style="font-size: 2rem; font-variation-settings:'FILL' 1;">
+                    <span class="material-symbols-outlined trolley-icon" style="font-variation-settings:'FILL' 1;">
                       shopping_cart
                     </span>
                     Add To Cart
@@ -77,7 +77,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row information-sect">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
         <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane"
@@ -95,7 +95,7 @@
     <div class="tab-content py-3" id="myTabContent">
       <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab"
         tabindex="0" style="gap: 3rem;">
-        <div class="product-description">
+        <div class="product-section">
           <div>
             <p class="mb-0">Product Information</p>
             <ul>
@@ -107,11 +107,13 @@
               <li>Maximum Load: {{product.specification.maxLoad}} kg</li>
             </ul>
           </div>
-          <div class="product-images d-flex" style="gap: 4rem;">
-            <img class="rounded" [src]="product.imagePath[1]" alt="product images">
-            <img class="rounded" [src]="product.imagePath[2]" alt="product images">
+          <div class="product-images d-flex mb-3">
+            <img class="rounded product-image" [src]="product.imagePath[1]" alt="product images">
+            <img class="rounded product-image" [src]="product.imagePath[2]" alt="product images">
           </div>
         </div>
+      </div>
+      <div class="product-description">
       </div>
       <div class="tab-pane fade" id="essentials-tab-pane" role="tabpanel" aria-labelledby="essentials-tab" tabindex="0">
         <div class="product-care">
@@ -124,5 +126,3 @@
     </div>
   </div>
 </div>
-
-<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
