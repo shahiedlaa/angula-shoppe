@@ -25,6 +25,7 @@ export class ProductPageComponent {
   productDescList: string[];
   productCareInfo: string[];
   cartItems: cart[];
+  shareLink:string;
 
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: ShoppingCartService, private router: Router, private toastService: ToastService) { }
@@ -56,6 +57,8 @@ export class ProductPageComponent {
         this.cartItems = cart;
       }
     )
+    this.shareLink = this.router.url;
+
   }
 
   ngOnDestroy() {

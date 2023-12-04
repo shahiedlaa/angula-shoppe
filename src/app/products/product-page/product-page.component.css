@@ -179,3 +179,9 @@
     margin-top: 1rem;
   }
 }
+
+.share-buttons {
+  background-color: darkred;
+  border-radius: 3rem;
+  width: 200px;
+}

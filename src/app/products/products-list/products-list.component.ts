@@ -17,12 +17,17 @@ export class ProductsListComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute, private cartService: ShoppingCartService) { }
 
   products: product[];
+  type:string;
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
-    this.productService.$productChanged.subscribe((products: product[]) => {
-      this.products = products;
+    this.route.queryParams.subscribe((params)=>{
+      this.type = params.category;
     })
+    this.products = this.productService.getProducts().filter((product)=> product.type == this.type);
+    this.productService.$productChanged.subscribe((products: product[]) => {
+      this.products = products.filter((product)=> product.type == this.type);
+    })
+    console.log(this.products)
   }
 
   goNew() {

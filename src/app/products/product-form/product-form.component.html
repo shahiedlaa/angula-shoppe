@@ -9,8 +9,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div style="margin-bottom: 0.5rem;">
+          <div style="margin-bottom: 0.6em;">
             <app-input-field label="Name" [control]="productForm.get('name')"></app-input-field>
+          </div>
+          <div style="margin-bottom: 0.4rem;">
+            <app-input-field label="Type" [control]="productForm.get('type')"></app-input-field>
           </div>
           <div style="margin-bottom: 0.5rem;">
             <app-input-field label="Description" [control]="productForm.get('description')"></app-input-field>

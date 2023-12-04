@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AuthGuard } from "../auth/auth-guard";
 import { ModalPopComponent } from "../modal-pop/modal-pop.component";
+import { SharedModule } from "../shared/shared.module";
 import { ToastsComponent } from "../toasts/toasts.component";
 import { ProductConfirmComponent } from "./product-confirm/product-confirm.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
@@ -32,7 +33,7 @@ import { ProductsComponent } from "./products.component";
     ProductConfirmComponent,
     ToastsComponent,
     InputFieldComponent,
-    ModalPopComponent
+    ModalPopComponent,
   ],
   exports: [
     ProductEditComponent,
@@ -54,7 +55,8 @@ import { ProductsComponent } from "./products.component";
     CommonModule,
     RouterModule,
     ProductsRoutingModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ]
 })
 export class ProductsModule { }

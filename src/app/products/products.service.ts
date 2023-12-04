@@ -37,9 +37,13 @@ export class ProductService {
     this.$productChanged.emit(this.products.slice());
   }
 
-  updateProduct(product: product, index: number) {
-    this.products[index] = product;
+  updateProduct(product: product, index: number, type:string) {
+    let oldProduct = this.products.filter((product)=> product.type == type)[index];
+    const isFound = (product) => product.name == oldProduct.name;
+    const newIndex = this.products.findIndex(isFound);
+    this.products[newIndex] = product;
     this.$productChanged.emit(this.products.slice())
+    console.log(this.products)
   }
 
   deleteProduct(index: number) {

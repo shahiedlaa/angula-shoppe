@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 import { product } from '../../product.model';
 import { ProductService } from '../../products.service';
@@ -14,16 +15,22 @@ export class ProductItemComponent {
   @Input() product: product;
   @Input() productId: number;
   productDescList: string[];
+  isAuth: boolean = false;
 
-  constructor(private prodService: ProductService, private router: Router) { }
+  constructor(private prodService: ProductService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.productDescList = this.product.description.split('.');
+    this.authService.user.subscribe((user) => {
+      if(user){
+        this.isAuth = true
+      }
+    })
   }
 
   emitProduct(product: product) {
     this.prodService.$emitProduct.next(product);
-    this.router.navigate([this.product.name])
+    this.router.navigate([`products/${product.name}`])
     localStorage.setItem('product', JSON.stringify(product));
   }
 
@@ -32,7 +39,7 @@ export class ProductItemComponent {
     this.prodService.$emitIndex.next(index);
   }
 
-  deleteProd(index:number){
+  deleteProd(index: number) {
     this.prodService.deleteProduct(index);
   }
 

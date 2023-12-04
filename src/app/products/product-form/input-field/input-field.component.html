@@ -1,7 +1,32 @@
-<label class="label" style="font-weight: bolder;">{{label}}:</label>
+<label class="label" *ngIf="label !== 'Type'" style="font-weight: bolder;">{{label}}:</label>
 
 <input type="text" *ngIf="label == 'Name' " [formControl]="control" id="name"
   [ngClass]="{'alert-danger': showErrors()}">
+
+<div *ngIf="label == 'Type'" class="d-flex flex-row" >
+  <label class="label" *ngIf="label == 'Type'" style="font-weight: bolder;">{{label}}:</label>
+  <div class="radio container d-flex flex-row" style="gap:1rem;">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="type" id="furniture" value="furniture" [formControl]="control">
+      <label class="form-check-label" for="furniture">
+        Furniture
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="type" id="toys" value="toys" [formControl]="control">
+      <label class="form-check-label" for="toys">
+        Toys
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="type" id="treats" value="treats" [formControl]="control">
+      <label class="form-check-label" for="treats">
+        Treats
+      </label>
+    </div>
+  </div>
+
+</div>
 <input type="text" *ngIf="label == 'Color' " [formControl]="control" id="color"
   [ngClass]="{'alert-danger': showErrors()}">
 <input *ngIf="label =='Warranty (yrs)'" type="number" [formControl]="control" id="warranty"

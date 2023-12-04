@@ -30,6 +30,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
       imagePath2: new FormControl('', [Validators.required, Validators.pattern('^http.*$')]),
       imagePath3: new FormControl('', [Validators.required, Validators.pattern('^http.*$')]),
       warranty: new FormControl('', [Validators.required]),
+      type: new FormControl('',[Validators.required])
     });
   }
 
@@ -55,6 +56,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
           imagePath2: `${this.product.imagePath[1]}`,
           imagePath3: `${this.product.imagePath[2]}`,
           warranty: `${this.product.warrranty}`,
+          type:`${this.product.type}`
         })
       }
     })
@@ -74,12 +76,14 @@ export class ProductFormComponent implements OnInit, OnDestroy {
       `${form.value.imagePath2}`,
       `${form.value.imagePath3}`,
     ]
-    let newProduct = new product(form.value.name, form.value.description, newProductSpecs, form.value.price, newProductImages, form.value.warranty)
-
-    console.log(newProduct)
+    let newProduct = new product(form.value.name, form.value.description, newProductSpecs, form.value.price, newProductImages, form.value.warranty, form.value.type);
 
     if (this.editMode) {
-      this.productService.updateProduct(newProduct, this.productId);
+      this.productService.updateProduct(newProduct, this.productId, newProduct.type);
+      console.log(newProduct.type)
+      // let products = this.productService.getProducts()
+      // console.log(products)
+
     }
     else this.productService.addProduct(newProduct);
   }

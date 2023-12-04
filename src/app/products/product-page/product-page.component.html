@@ -54,13 +54,6 @@
               </p>
               <p class="icon-text">
                 <span class="material-symbols-outlined" style="font-size: 2rem; font-variation-settings:'FILL' 1;">
-                  diversity_1
-                </span>
-                Share to Friends
-              </p>
-              <hr>
-              <p class="icon-text">
-                <span class="material-symbols-outlined" style="font-size: 2rem; font-variation-settings:'FILL' 1;">
                   package_2
                 </span>
                 90 Days Return Policy
@@ -71,6 +64,24 @@
                 </span>
                 Interest Free Installment Available
               </p>
+              <hr>
+              <div class="d-flex flex-column justify-content-center align-items-center">
+
+                <p class="icon-text mb-3">
+                  <span class="material-symbols-outlined" style="font-size: 2rem; font-variation-settings:'FILL' 1;">
+                    diversity_1
+                  </span>
+                  Share with Friends
+                </p>
+
+                <p>
+                  <share-buttons class="share-buttons" [include]="['telegram','twitter', 'whatsapp']" [showIcon]="true"
+                    [showText]="false" [url]="shareLink">
+                  </share-buttons>
+                </p>
+
+              </div>
+
             </div>
           </div>
         </div>

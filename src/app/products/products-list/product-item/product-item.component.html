@@ -5,7 +5,7 @@
         <h5>{{ product.name | titlecase}}</h5>
         <span style="color: darkred;">${{product.price}}</span>
       </div>
-      <div class="dropdown">
+      <div class="dropdown" *ngIf="isAuth">
         <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Manage Product
         </button>

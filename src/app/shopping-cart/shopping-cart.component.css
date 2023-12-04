@@ -22,6 +22,7 @@
   background-color: black;
 }
 
+
 @media (max-width: 768px) {
 
   .card-body {
@@ -39,10 +40,19 @@
   .order-section {
     width: 340px;
   }
+  .product-image-gap{
+    gap: 0.5rem;
+  }
 }
 
 @media (min-width: 992px) {
   .whole-section{
     margin: 1.2rem;
+  }
+  .product-image-gap{
+    gap: 1rem;
+  }
+  .order-section {
+    width: 550px;
   }
 }

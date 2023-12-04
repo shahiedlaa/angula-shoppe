@@ -4,6 +4,7 @@ import { ShoppingCartService } from './shopping-cart.service';
 import { product } from '../products/product.model';
 import { cart } from './cart.model';
 import { orders } from './orders.model';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -17,7 +18,7 @@ export class ShoppingCartComponent implements OnInit {
   orders: cart[] = [];
   total:number;
 
-  constructor(private cartService: ShoppingCartService) { }
+  constructor(private cartService: ShoppingCartService, private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.cart = this.cartService.getCartItems();
@@ -69,6 +70,10 @@ export class ShoppingCartComponent implements OnInit {
       total += value.price * value.quantity
     })
     this.total = total;
+  }
+
+  orderConfirm(){
+    this.router.navigate(['orders',],{relativeTo: this.route})
   }
 
 }

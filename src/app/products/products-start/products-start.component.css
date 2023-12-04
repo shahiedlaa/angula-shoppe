@@ -1,0 +1,31 @@
+::ng-deep .carousel-inner {
+  border-radius: 0.5rem;
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-caption h3 {
+  color: beige;
+}
+
+.img-fluid{
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    width: 300px;
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel {
+    width: 900px;
+  }
+}
+
+
+
