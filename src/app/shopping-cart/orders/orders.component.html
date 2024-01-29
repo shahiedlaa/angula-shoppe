@@ -1,1 +1,62 @@
-<p>orders works!</p>
+<div class="row whole-section d-flex">
+
+  <div style="text-align: center;">
+    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+  </div>
+
+  <div class="col-xs-12" *ngIf="!isLoading">
+    <div class="order-container mt-3 d-flex flex-column align-items-center ">
+      <h2>Order confirmed!</h2>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-xs-6 d-flex flex-row justify-content-center">
+    <div class="order-summary">
+      <div class="order-summary-image">
+        <picture>
+          <source srcset="../../../assets/images/catBox.jpg" media="(min-width:768px)">
+          <img class="img-fluid" src="../../../assets/images/catBoxMobile.jpg" />
+        </picture>
+      </div>
+      <div class="order-summary-card">
+        <div class="card order-section">
+          <div class="card-body">
+            <h5 class="card-title">Order Summary</h5>
+
+            <div class="d-flex justify-content-center" *ngIf="orderedItems.length > 0">
+              <table class="table table-striped align-middle" style="width: 100%; margin: 0.5rem; text-align: center;">
+                <thead>
+                  <tr>
+                    <th scope="col" style="text-align: left;">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of orderedItems; index as i">
+                    <td class="d-flex flex-row align-items-center" style="gap: 1rem">
+                      <div><img [src]="item.imageUrl" height="50px"
+                          style="border-radius:0.5rem; border: 0.2px solid black;">
+                      </div>
+                      <p class="product-name">{{item.name | titlecase}}</p>
+                    </td>
+                    <td><span style="margin: 0.65rem; cursor:default;">{{item.quantity}}</span>
+                    </td>
+                    <td> ${{item.quantity * item.price}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span style="margin-left: 1rem; font-weight: bold;">Order total: ${{total}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

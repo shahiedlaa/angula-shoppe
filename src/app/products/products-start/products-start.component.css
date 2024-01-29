@@ -15,15 +15,25 @@
   cursor: pointer;
 }
 
+.header{
+  text-align: center;
+  margin-top: 1rem;
+  color:dimgray;
+}
+
 @media (max-width: 768px) {
   .carousel {
     width: 300px;
+  }
+  .header{
+    font-size: 1rem;
   }
 }
 
 @media (min-width: 992px) {
   .carousel {
-    width: 900px;
+    height: auto;
+    width: 700px;
   }
 }
 

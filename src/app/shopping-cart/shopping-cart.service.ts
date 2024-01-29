@@ -46,6 +46,12 @@ export class ShoppingCartService {
     this.$cartChange.emit(this.cart.slice());
   }
 
+  resetOrder() {
+    this.orders = [];
+    localStorage.setItem('orderItems', JSON.stringify(this.orders))
+    this.$cartChange.emit(this.orders.slice());
+  }
+
   autoCart(){
     this.cart = JSON.parse(localStorage.getItem('cartItems'));
   }

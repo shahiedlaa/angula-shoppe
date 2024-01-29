@@ -2,7 +2,7 @@
 
   <div class="col-xs-12 col-md-6">
     <div class="cart-container mt-3 d-flex flex-column align-items-center ">
-      <div class="card cart-section">
+      <div class="card cart-section mb-3">
         <img src="../../assets/images/checkout.jpg" class="card-img-top img-fluid"
           alt="scandanavian furniture" />
         <div class="card-body">
@@ -22,7 +22,7 @@
               <tbody>
                 <tr *ngFor="let item of cart; index as i">
                   <td class="d-flex flex-row align-items-center product-image-gap">
-                    <div><img [src]="item.imageUrl" height="50px"
+                    <div><img [src]="item.imageUrl" height="40px"
                         style="border-radius:0.5rem; border: 0.2px solid black;">
                     </div>
                     <p class="product-name">{{item.name | titlecase}}</p>
@@ -50,7 +50,7 @@
 
   <div class="col-xs-12 col-md-6">
     <div class="order-container mt-3 d-flex flex-column align-items-center ">
-      <div class="card order-section">
+      <div class="card order-section mb-2">
         <div class="card-body">
           <h5 class="card-title">Order Summary</h5>
           <div class="d-flex justify-content-center" *ngIf="orders.length > 0">
@@ -85,11 +85,9 @@
           </div>
         </div>
         <div class="coupon-code">
-          <div class="card-body">
             <p class="card-text" *ngIf="orders.length == 0">
               Your order section is empty, fill it up with good stuff!
             </p>
-          </div>
           <div class="card-footer">
             <button class="btn btn-primary" (click)="orderConfirm()" [disabled]="orders.length==0">Confirm Order</button>
             <span *ngIf="orders.length!==0" style="margin-left: 1rem;">Order total: ${{total}}</span>

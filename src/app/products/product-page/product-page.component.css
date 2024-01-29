@@ -15,6 +15,11 @@
   font-size: 1.25rem;
 }
 
+.top-header a {
+  text-decoration: none;
+  color: black;
+}
+
 .product-price {
   color: rgb(209, 66, 50);
 }
@@ -159,6 +164,7 @@
 
   .product-images img {
     height: 150px;
+    max-width: 160px;
   }
   .product-images {
     gap: 1rem;

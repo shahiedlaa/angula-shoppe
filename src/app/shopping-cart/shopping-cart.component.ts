@@ -73,7 +73,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   orderConfirm(){
-    this.router.navigate(['orders',],{relativeTo: this.route})
+    this.router.navigate(['orders',],{relativeTo: this.route});
   }
 
 }

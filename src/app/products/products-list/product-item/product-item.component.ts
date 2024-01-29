@@ -40,7 +40,7 @@ export class ProductItemComponent {
   }
 
   deleteProd(index: number) {
-    this.prodService.deleteProduct(index);
+    this.prodService.deleteProduct(index, this.product.type);
   }
 
 }

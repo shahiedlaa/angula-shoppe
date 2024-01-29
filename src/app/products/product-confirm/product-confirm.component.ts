@@ -14,6 +14,7 @@ import { ProductService } from '../products.service';
 export class ProductConfirmComponent {
   productId: number;
   product: product;
+  productType: string;
   addMode: boolean = false;
   cartItems: cart[];
   exists: boolean = false;
@@ -32,6 +33,9 @@ export class ProductConfirmComponent {
       if (state) {
         this.addMode = false;
       }
+    })
+    this.productService.$productType.subscribe((type)=> {
+      this.productType = type;
     })
   }
 
@@ -64,9 +68,9 @@ export class ProductConfirmComponent {
   }
 
   deleteProd() {
-    let product = this.productService.getProductbyId(this.productId);
+    let product = this.productService.getProductbyIdAndType(this.productId,this.productType);
     let productName = product.name[0].toUpperCase() + product.name.slice(1).toLowerCase();
-    this.productService.deleteProduct(this.productId);
+    this.productService.deleteProduct(this.productId, this.productType);
     this.productService.$formState.next(true);
     this.toastService.show('Notification', productName + ' was deleted from the list!', null, 'prodDeleted');
   }

@@ -22,6 +22,7 @@ export class ProductsListComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe((params)=>{
       this.type = params.category;
+      this.productService.$productType.next(this.type);
     })
     this.products = this.productService.getProducts().filter((product)=> product.type == this.type);
     this.productService.$productChanged.subscribe((products: product[]) => {

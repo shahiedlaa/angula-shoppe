@@ -14,12 +14,13 @@ export class ProductService {
   $editMode = new EventEmitter<boolean>();
   $emitNew = new Subject<boolean>();
   $formState = new BehaviorSubject(null);
+  $productType = new BehaviorSubject(null);
 
   public products: product[] = [];
 
   constructor() { }
 
-  setProducts(products: product[]){
+  setProducts(products: product[]) {
     this.products = products
     this.$productChanged.next(this.products.slice())
   }
@@ -32,22 +33,28 @@ export class ProductService {
     return this.products.slice()[index];
   }
 
+  getProductbyIdAndType(index: number, type: string) {
+    return this.products.filter((product) => product.type == type)[index];
+  }
+
   addProduct(product: product) {
     this.products.push(product);
     this.$productChanged.emit(this.products.slice());
   }
 
-  updateProduct(product: product, index: number, type:string) {
-    let oldProduct = this.products.filter((product)=> product.type == type)[index];
+  updateProduct(product: product, index: number, type: string) {
+    let oldProduct = this.products.filter((product) => product.type == type)[index];
     const isFound = (product) => product.name == oldProduct.name;
     const newIndex = this.products.findIndex(isFound);
     this.products[newIndex] = product;
     this.$productChanged.emit(this.products.slice())
-    console.log(this.products)
   }
 
-  deleteProduct(index: number) {
-    this.products.splice(index, 1);
+  deleteProduct(index: number, type: string) {
+    let oldProduct = this.products.filter((product) => product.type == type)[index];
+    const isFound = (product) => product.name == oldProduct.name;
+    const newIndex = this.products.findIndex(isFound);
+    this.products.splice(newIndex, 1);
     this.$productChanged.emit(this.products.slice());
   }
 

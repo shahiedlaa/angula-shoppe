@@ -1,6 +1,9 @@
 <div class="container-fluid">
-  <div class="row justify-content-start mb-3">
-    Home > {{ productName | titlecase }}
+  <div class="row mb-3">
+    <div class="top-header">
+      <a routerLink="../">Home</a>
+      <span> > {{ productName | titlecase }}</span>
+    </div>
   </div>
   <div class="row">
     <div class="col-6 col-md-4 main-pic-sect">
