@@ -3,8 +3,7 @@
   <div class="col-xs-12 col-md-6">
     <div class="cart-container mt-3 d-flex flex-column align-items-center ">
       <div class="card cart-section mb-3">
-        <img src="../../assets/images/checkout.jpg" class="card-img-top img-fluid"
-          alt="scandanavian furniture" />
+        <img src="../../assets/images/checkout.jpg" class="card-img-top img-fluid" alt="scandanavian furniture" />
         <div class="card-body">
           <h5 class="card-title"> {{cart.length>0? 'Your Shopping Cart':'Your shopping cart is empty, time to get
             busy!'}}
@@ -85,11 +84,12 @@
           </div>
         </div>
         <div class="coupon-code">
-            <p class="card-text" *ngIf="orders.length == 0">
-              Your order section is empty, fill it up with good stuff!
-            </p>
+          <p class="card-text" style="margin-left:1rem ;" *ngIf="orders.length == 0">
+            Your order section is empty, fill it up with good stuff!
+          </p>
           <div class="card-footer">
-            <button class="btn btn-primary" (click)="orderConfirm()" [disabled]="orders.length==0">Confirm Order</button>
+            <button class="btn btn-primary" (click)="orderConfirm()" [disabled]="orders.length==0">Confirm
+              Order</button>
             <span *ngIf="orders.length!==0" style="margin-left: 1rem;">Order total: ${{total}}</span>
           </div>
         </div>
